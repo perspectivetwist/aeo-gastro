@@ -259,6 +259,18 @@ function ResultsContent() {
             &larr; Weitere URL analysieren
           </a>
         </div>
+
+        {/* ASD Hotmail Footer */}
+        <div className="text-center pt-8 pb-4 border-t border-white/10 mt-8">
+          <a
+            href="https://ai-gastro-hub.vercel.app?utm_source=aeo&utm_medium=report&utm_campaign=hotmail"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-gray-500 hover:text-gray-300 transition-colors"
+          >
+            Erstellt mit AI Shift Drift | Kostenloser KI-Scan f&uuml;r Restaurants
+          </a>
+        </div>
       </div>
 
       {!isUnlocked && (
