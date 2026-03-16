@@ -12,6 +12,7 @@ import MetaTagsOutput from '@/components/MetaTagsOutput'
 import RankingCard from '@/components/RankingCard'
 import EmailGate from '@/components/EmailGate'
 import BlurWrapper from '@/components/BlurWrapper'
+import CrossSell from '@/components/CrossSell'
 
 const SECTION_CONFIG = [
   { criterionName: 'Direkte Antwort', label: 'Direkte Antwort', subtitle: 'Gibt deine Website eine klare Antwort auf die Hauptfrage?', effort: '30 Min', key: 'answerBlock' },
@@ -247,6 +248,8 @@ function ResultsContent() {
             />
           ))
         }
+
+        <CrossSell />
 
         <div className="text-center pt-4">
           <a
