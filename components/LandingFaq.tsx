@@ -5,29 +5,37 @@ import { ChevronDown, ChevronUp, Shield, ServerOff, MapPin } from 'lucide-react'
 
 const faqItems = [
   {
-    question: 'Was ist KI-Sichtbarkeit für Restaurants?',
-    answer: 'Wenn jemand ChatGPT, Perplexity oder Google AI fragt "Welches Restaurant empfiehlst du in Berlin?", durchsuchen diese KI-Systeme das Internet. Restaurants die schlecht strukturierte Websites haben werden nicht gefunden und nicht empfohlen — egal wie gut das Essen ist.',
+    question: 'Was macht den AEO Transformer einzigartig?',
+    answer: 'In 20 Sekunden analysiert unsere KI deine Restaurant-Website nach den gleichen Kriterien, nach denen ChatGPT, Perplexity & Co. Antworten auswählen. Du bekommst sofort einsatzbereiten, optimierten Content — kein Account, keine Agentur, kein Warten. Einfach URL eingeben, fertig.',
     alwaysOpen: true,
   },
   {
-    question: 'Was prüft der AEO-Scanner für mein Restaurant?',
-    answer: 'Der Scanner analysiert 8 Kriterien: Ob deine Website maschinenlesbar ist, ob du FAQ-Inhalte hast, ob deine Öffnungszeiten strukturiert vorliegen, ob deine Speisekarte von KI gelesen werden kann, ob dein Google Business Profile vollständig ist, ob du Schema Markup hast, ob deine Seite schnell lädt und ob dein Impressum korrekt ist.',
+    question: 'Warum gibt es den AEO Scanner und warum jetzt?',
+    answer: 'Weil die meisten Restaurant-Websites von KI-Suchmaschinen nicht verstanden werden — und die Inhaber es nicht wissen.\n\nChatGPT, Perplexity & Co. beantworten Fragen direkt. Wer nicht zitiert wird, existiert nicht. Die Zahlen:\n\n• 58% der Konsumenten nutzen KI-Tools statt Google für Produkt- und Servicesuche (Capgemini 2025)\n• +527% Anstieg KI-generierter Website-Referrals in nur 5 Monaten (Previsible Jan–Mai 2025)\n• 25% aller Suchanfragen wandern bis 2028 zu KI-Engines (Gartner)\n• 800 Mio. wöchentliche ChatGPT-Nutzer — Stand Ende 2025 (OpenAI)\n• AI Search Traffic konvertiert mit 14,2% — fünfmal besser als Google mit 2,8%\n\nDer AEO Scanner macht in 20 Sekunden sichtbar ob deine Restaurant-Website KI-lesbar ist — und liefert sofort optimierten Content zum Einbauen.',
   },
   {
-    question: 'Wie lange dauert der Scan?',
-    answer: '60 Sekunden. Du gibst deine Website-URL ein, wir analysieren automatisch alle 8 Kriterien und zeigen dir deinen Score mit konkreten Verbesserungsvorschlägen.',
+    question: 'Was ist AEO und warum brauche ich das?',
+    answer: 'AEO (Answer Engine Optimization) optimiert deine Restaurant-Website für KI-Suchmaschinen. Während Google Links rankt, wählen ChatGPT und Perplexity direkte Antworten aus. Mit AEO sicherst du dir Sichtbarkeit in KI-Antworten — ohne traditionelles Ranking.',
   },
   {
-    question: 'Was kostet der Scan?',
-    answer: 'Der Scan ist kostenlos. Du bekommst deinen Score und eine Übersicht der Kriterien. Den vollständigen Aktionsplan mit priorisierten Schritten gibt es nach Email-Eingabe.',
+    question: 'Wie funktioniert der AEO Transformer?',
+    answer: 'Du gibst deine URL ein, die KI analysiert deinen Content nach den gleichen Kriterien wie ChatGPT und Perplexity. In 20 Sekunden erhältst du einen Score und einsatzbereiten, optimierten Content mit JSON-LD Schema und Meta-Tags.',
   },
   {
-    question: 'Was ist der Unterschied zwischen AEO und GEO für Restaurants?',
-    answer: 'AEO (Answer Engine Optimization) optimiert deine Website damit KI-Systeme sie lesen und zitieren können. GEO (Generative Engine Optimization) optimiert deinen digitalen Ruf — Bewertungen, Erwähnungen, Brancheneinträge. Beides zusammen macht dein Restaurant vollständig KI-sichtbar.',
+    question: 'Was zeigt der AEO-Score?',
+    answer: 'Der Score (0–100) misst, wie gut deine Restaurant-Website für KI-Zitierung optimiert ist. Er berücksichtigt Content-Struktur, Klarheit der Antworten und technisches Markup — direkt vergleichbar mit dem Standard von ChatGPT & Co.',
   },
   {
-    question: 'Mein Restaurant hat viele Google-Bewertungen — warum findet mich ChatGPT trotzdem nicht?',
-    answer: 'Google-Bewertungen allein reichen nicht. ChatGPT liest primär strukturierte Website-Inhalte. Wenn deine Website kein Schema Markup hat, keine FAQ-Seite und keinen maschinenlesbaren Content — bleibt dein Restaurant unsichtbar, egal wie viele Sterne du hast.',
+    question: 'Brauche ich einen Account oder Installation?',
+    answer: 'Nein. Der AEO Transformer ist völlig kostenlos, ohne Account und ohne Installation. URL eingeben, warten, Ergebnis kopieren — DSGVO-konform und ohne Datenspeicherung.',
+  },
+  {
+    question: 'Wer sollte AEO Optimization machen?',
+    answer: 'Alle Gastronomiebetriebe profitieren: Restaurants, Cafés, Hotels, Catering-Unternehmen und Franchise-Ketten. Besonders wichtig für Betriebe die Reservierungen, Speisekarten und Angebote online haben — denn diese Inhalte werden von KI-Suchmaschinen zitiert.',
+  },
+  {
+    question: 'Wie aktuell ist die Analyse?',
+    answer: 'Die Analyse läuft in Echtzeit.',
   },
 ]
 
