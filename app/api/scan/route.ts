@@ -5,6 +5,7 @@ import { transformContent } from '@/lib/transformer'
 import { checkRateLimit } from '@/lib/rate-limit'
 import { ScanResult, ApiError } from '@/types/aeo'
 import { logScan } from '@/lib/notion'
+import { pingIndexNow } from '@/lib/indexnow'
 
 // SSRF-Schutz: Interne IPs und Hostnamen blocken
 const BLOCKED_HOSTS = [
@@ -107,6 +108,9 @@ export async function POST(request: NextRequest) {
 
     // Scan in Notion loggen
     await logScan(normalizedUrl, score.total)
+
+    // IndexNow: Result-URL an Bing pushen (fire-and-forget)
+    pingIndexNow(normalizedUrl)
 
     const response = NextResponse.json(result)
     response.headers.set('X-RateLimit-Remaining', String(remaining))
