@@ -30,18 +30,18 @@ export default function Home() {
           {/* 5.7: Social Proof Bubble */}
           <div className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 mb-12 sm:mb-20">
             <span className="w-2.5 h-2.5 rounded-full bg-blue-500" />
-            <span className="text-base font-light text-gray-300">&Uuml;ber 15.000 Websites auf KI-Sichtbarkeit gepr&uuml;ft</span>
+            <span className="text-base font-light text-gray-300">&Uuml;ber 15.000 Restaurants auf KI-Sichtbarkeit gepr&uuml;ft</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-10 sm:mb-16 leading-tight">
-            Wie sichtbar ist deine Website f&uuml;r<br />
+            Wird ChatGPT dein<br />
             <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-              ChatGPT&nbsp;&amp;&nbsp;Co.?
+              Restaurant empfehlen?
             </span>
           </h1>
 
           <p className="text-base sm:text-lg font-light text-gray-300 mb-10 max-w-xl mx-auto">
-            Deine Kunden fragen ChatGPT statt Google. Taucht dein Unternehmen in der Antwort auf?
+            Scan deine Website kostenlos. In 60 Sekunden siehst du ob dein Restaurant in KI-Suchen auftaucht.
           </p>
 
           <UrlInputForm />
@@ -77,7 +77,7 @@ export default function Home() {
           So funktioniert&apos;s
         </h2>
         <p className="text-base font-light text-gray-300 text-center mb-12">
-          Drei Schritte zu deinem AEO-Report.
+          Drei Schritte zu deinem Restaurant AEO-Report.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           {[
@@ -122,17 +122,17 @@ export default function Home() {
       {/* FÜR WEN */}
       <div className="max-w-4xl mx-auto px-4 pt-24 sm:pt-32">
         <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-3">
-          F&uuml;r wen ist der AEO Scanner?
+          F&uuml;r wen ist der AEO Gastro Scanner?
         </h2>
         <p className="text-base font-light text-gray-300 text-center mb-12">
-          Jeder, der von KI-Antwortmaschinen als Quelle zitiert werden will.
+          Jeder Gastro-Betrieb, der von KI-Antwortmaschinen als Quelle zitiert werden will.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {[
-            { icon: Building2, title: 'Agenturen & Berater', desc: 'Zeig deinen Kunden mit einem Score, warum AEO wichtig ist. Perfekt als Einstieg ins Beratungsgespr\u00e4ch.' },
-            { icon: Briefcase, title: 'KMUs & Mittelstand', desc: 'Verstehe in 20 Sekunden, ob dein Unternehmen von ChatGPT zitiert wird, wenn Kunden nach deiner Leistung fragen.' },
-            { icon: PenTool, title: 'Content Creator & Blogger', desc: 'Finde heraus, ob deine Inhalte so strukturiert sind, dass KI sie als Quelle nennt.' },
-            { icon: Users, title: 'SEO-Teams & Freelancer', desc: 'Erg\u00e4nze dein SEO-Toolkit um die AEO-Perspektive. Entdecke Optimierungspotenziale, die klassische Tools \u00fcbersehen.' },
+            { icon: Building2, title: 'Restaurants & Cafés', desc: 'Erfahre in 20 Sekunden, ob ChatGPT dein Restaurant empfiehlt wenn Gäste nach Empfehlungen fragen.' },
+            { icon: Briefcase, title: 'Hotels & Catering', desc: 'Prüfe ob dein Betrieb bei KI-gestützten Reise- und Eventplanungen auftaucht.' },
+            { icon: PenTool, title: 'Gastro-Berater & Agenturen', desc: 'Zeig deinen Kunden mit einem Score, warum KI-Sichtbarkeit der neue Standard ist.' },
+            { icon: Users, title: 'Lieferdienste & Foodtrucks', desc: 'KI-Agenten empfehlen bald Lieferoptionen. Stelle sicher dass du dabei bist.' },
           ].map(({ icon: Icon, title, desc }) => (
             <div
               key={title}
@@ -157,7 +157,7 @@ export default function Home() {
       {/* FOOTER CTA */}
       <div className="border-t border-white/10 py-16 sm:py-32 px-4 text-center">
         <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">
-          Ist deine Website bereit f&uuml;r KI-Suchen?
+          Ist dein Restaurant bereit f&uuml;r KI-Suchen?
         </h2>
         <UrlInputForm />
       </div>

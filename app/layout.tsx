@@ -15,22 +15,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  robots: { index: false, follow: false },
-  title: "AEO Transformer – KI-Sichtbarkeit messen",
+  robots: { index: true, follow: true },
+  title: "KI-Scanner für Restaurants | Wird ChatGPT dein Restaurant empfehlen?",
   description:
-    "Kostenloses Tool das berechnet wie sichtbar deine Website für ChatGPT, Perplexity und Gemini ist. AEO-Score in 20 Sekunden.",
+    "Kostenloser Scan: Ist dein Restaurant für ChatGPT, Google AI und Perplexity sichtbar? Ergebnis in 60 Sekunden.",
   openGraph: {
-    title: "AEO Transformer – Ist deine Website KI-sichtbar?",
+    title: "KI-Scanner für Restaurants | Wird ChatGPT dein Restaurant empfehlen?",
     description:
-      "AEO-Score kostenlos messen + optimierten Content erhalten.",
-    url: "https://aeo-transformer.vercel.app",
-    siteName: "AEO Transformer",
+      "Kostenloser Scan: Ist dein Restaurant für ChatGPT, Google AI und Perplexity sichtbar?",
+    url: "https://aeo-gastro.vercel.app",
+    siteName: "AEO Gastro Scanner",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "AEO Score Checker",
-    description: "Kostenloser AEO-Score für deine Website.",
+    title: "KI-Scanner für Restaurants",
+    description: "Kostenloser Scan: Ist dein Restaurant für ChatGPT sichtbar?",
   },
 };
 
