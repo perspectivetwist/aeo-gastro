@@ -34,14 +34,14 @@ export default function Home() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-10 sm:mb-16 leading-tight">
-            Wird ChatGPT dein<br />
+            Kostenloser KI-Sichtbarkeits-Scan{' '}
             <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-              Restaurant empfehlen?
+              f&uuml;r dein Restaurant
             </span>
           </h1>
 
           <p className="text-base sm:text-lg font-light text-gray-300 mb-10 max-w-xl mx-auto">
-            Scan deine Website kostenlos. In 60 Sekunden siehst du ob dein Restaurant in KI-Suchen auftaucht.
+            Pr&uuml;fe in 60 Sekunden, ob ChatGPT, Google AI und Perplexity dein Restaurant empfehlen &mdash; und was du &auml;ndern kannst.
           </p>
 
           <UrlInputForm />
