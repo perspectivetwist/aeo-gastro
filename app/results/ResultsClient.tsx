@@ -13,6 +13,7 @@ import RankingCard from '@/components/RankingCard'
 import EmailGate from '@/components/EmailGate'
 import BlurWrapper from '@/components/BlurWrapper'
 import CrossSell from '@/components/CrossSell'
+import { trackScanComplete, trackEmailGate } from '@/lib/gtag'
 
 const SECTION_CONFIG = [
   { criterionName: 'Direkte Antwort', label: 'Direkte Antwort', subtitle: 'Gibt deine Website eine klare Antwort auf die Hauptfrage?', effort: '30 Min', key: 'answerBlock' },
@@ -119,6 +120,8 @@ function ResultsContent() {
         const data: ScanResult = JSON.parse(cached)
         sessionStorage.removeItem('aeo_result')
         setResult(data)
+        trackScanComplete(decodeURIComponent(url), data.score.total)
+        if (!isUnlocked) trackEmailGate('shown')
         setLoading(false)
         return
       } catch {
@@ -141,6 +144,8 @@ function ResultsContent() {
 
         const data: ScanResult = await res.json()
         setResult(data)
+        trackScanComplete(decodeURIComponent(url), data.score.total)
+        if (!isUnlocked) trackEmailGate('shown')
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Unbekannter Fehler')
       } finally {
