@@ -25,7 +25,7 @@ export default function JsonLdSchema() {
         "name": "Was macht den AEO Transformer einzigartig?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "In 20 Sekunden analysiert unsere KI deine Restaurant-Website nach den gleichen Kriterien, nach denen ChatGPT, Perplexity & Co. Antworten auswählen. Du bekommst sofort einsatzbereiten, optimierten Content — kein Account, keine Agentur, kein Warten. Einfach URL eingeben, fertig."
+          "text": "In 20 Sekunden analysiert unsere KI deine Restaurant-Website nach den gleichen Kriterien, nach denen ChatGPT, Perplexity & Co. Antworten auswählen. Du bekommst sofort einsatzbereiten, optimierten Content: kein Account, keine Agentur, kein Warten. Einfach URL eingeben, fertig."
         }
       },
       {
@@ -33,7 +33,7 @@ export default function JsonLdSchema() {
         "name": "Was ist AEO und warum brauche ich das?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "AEO (Answer Engine Optimization) optimiert deine Restaurant-Website für KI-Suchmaschinen. Während Google Links rankt, wählen ChatGPT und Perplexity direkte Antworten aus. Mit AEO sicherst du dir Sichtbarkeit in KI-Antworten — ohne traditionelles Ranking."
+          "text": "AEO (Answer Engine Optimization) optimiert deine Restaurant-Website für KI-Suchmaschinen. Während Google Links rankt, wählen ChatGPT und Perplexity direkte Antworten aus. Mit AEO sicherst du dir Sichtbarkeit in KI-Antworten, ohne traditionelles Ranking."
         }
       },
       {
@@ -49,7 +49,7 @@ export default function JsonLdSchema() {
         "name": "Was zeigt der AEO-Score?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Der Score (0–100) misst, wie gut deine Restaurant-Website für KI-Zitierung optimiert ist. Er berücksichtigt Content-Struktur, Klarheit der Antworten und technisches Markup — direkt vergleichbar mit dem Standard von ChatGPT & Co."
+          "text": "Der Score (0-100) misst, wie gut deine Restaurant-Website für KI-Zitierung optimiert ist. Er berücksichtigt Content-Struktur, Klarheit der Antworten und technisches Markup, direkt vergleichbar mit dem Standard von ChatGPT & Co."
         }
       },
       {
@@ -57,7 +57,7 @@ export default function JsonLdSchema() {
         "name": "Brauche ich einen Account oder Installation?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Nein. Der AEO Transformer ist völlig kostenlos, ohne Account und ohne Installation. URL eingeben, warten, Ergebnis kopieren — DSGVO-konform und ohne Datenspeicherung."
+          "text": "Nein. Der AEO Transformer ist völlig kostenlos, ohne Account und ohne Installation. URL eingeben, warten, Ergebnis kopieren. DSGVO-konform und ohne Datenspeicherung."
         }
       },
       {
@@ -65,7 +65,7 @@ export default function JsonLdSchema() {
         "name": "Wer sollte AEO Optimization machen?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Alle Gastronomiebetriebe profitieren: Restaurants, Cafés, Hotels, Catering-Unternehmen und Franchise-Ketten. Besonders wichtig für Betriebe die Reservierungen, Speisekarten und Angebote online haben — denn diese Inhalte werden von KI-Suchmaschinen zitiert."
+          "text": "Alle Gastronomiebetriebe profitieren: Restaurants, Cafés, Hotels, Catering-Unternehmen und Franchise-Ketten. Besonders wichtig für Betriebe die Reservierungen, Speisekarten und Angebote online haben, denn diese Inhalte werden von KI-Suchmaschinen zitiert."
         }
       },
       {

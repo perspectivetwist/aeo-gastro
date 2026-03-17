@@ -41,7 +41,7 @@ export default function Home() {
           </h1>
 
           <p className="text-base sm:text-lg font-light text-gray-300 mb-10 max-w-xl mx-auto">
-            Pr&uuml;fe in 60 Sekunden, ob ChatGPT, Google AI und Perplexity dein Restaurant empfehlen &mdash; und was du &auml;ndern kannst.
+            Pr&uuml;fe in 60 Sekunden, ob ChatGPT, Google AI und Perplexity dein Restaurant empfehlen und was du &auml;ndern kannst.
           </p>
 
           <UrlInputForm />

@@ -54,6 +54,6 @@ export async function saveEmailLead(entry: LeadEntry): Promise<void> {
 
   if (!response.ok) {
     const error = await response.text()
-    throw new Error(`Notion API Fehler: ${response.status} – ${error}`)
+    throw new Error(`Notion API Fehler: ${response.status} - ${error}`)
   }
 }

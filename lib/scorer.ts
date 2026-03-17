@@ -28,7 +28,7 @@ export function checkDirectAnswer(content: ScrapedContent): ScoreCriterion {
     maxScore: 25,
     passed: hasDirectAnswer,
     hint: hasDirectAnswer
-      ? 'Guter erster Absatz – KI kann direkt zitieren'
+      ? 'Guter erster Absatz. KI kann direkt zitieren'
       : 'Kein klarer Einstiegssatz gefunden. Beginne mit einer direkten Antwort auf die Hauptfrage der Seite.',
   }
 }
@@ -50,13 +50,13 @@ export function checkJsonLdSchema(content: ScrapedContent): ScoreCriterion {
 
   if (hasHighValueSchema) {
     score = 20
-    hint = 'Hochwertiges JSON-LD Schema gefunden – optimal für KI-Crawler'
+    hint = 'Hochwertiges JSON-LD Schema gefunden, optimal für KI-Crawler'
   } else if (hasJsonLd) {
     score = 10
     hint = 'JSON-LD vorhanden aber kein hochwertiger Typ (FAQPage, Article, HowTo). Erweitern empfohlen.'
   } else {
     score = 0
-    hint = 'Kein JSON-LD gefunden. Schema.org Markup hinzufügen – besonders FAQPage oder Article.'
+    hint = 'Kein JSON-LD gefunden. Schema.org Markup hinzufügen, besonders FAQPage oder Article.'
   }
 
   return {
@@ -81,7 +81,7 @@ export function checkFaqStructure(content: ScrapedContent): ScoreCriterion {
 
   if (hasFaqHeading && questionCount >= 5) {
     score = 15
-    hint = `FAQ-Sektion mit ${questionCount} Fragen gefunden – sehr gut für Voice Search und KI-Antworten`
+    hint = `FAQ-Sektion mit ${questionCount} Fragen gefunden, sehr gut für Voice Search und KI-Antworten`
   } else if (hasFaq || questionCount >= 3) {
     score = 8
     hint = 'Fragen vorhanden aber keine dedizierte FAQ-Sektion. FAQ-Bereich mit Schema.org hinzufügen.'
@@ -122,7 +122,7 @@ export function checkTitleDescription(content: ScrapedContent): ScoreCriterion {
     const issues = []
     if (!titleOk) issues.push(`Title ${titleLen < 30 ? 'zu kurz' : 'zu lang'} (${titleLen}/60 Zeichen)`)
     if (!descOk) issues.push(`Description ${descLen < 120 ? 'zu kurz' : 'zu lang'} (${descLen}/155 Zeichen)`)
-    hint = issues.join('. ') + '. Optimale Längen: Title 30–60, Description 120–155 Zeichen.'
+    hint = issues.join('. ') + '. Optimale Längen: Title 30-60, Description 120-155 Zeichen.'
   } else {
     score = 0
     hint = `${!titleExists ? 'Kein Meta-Title' : ''}${!descExists ? ' Keine Meta-Description' : ''} gefunden. Beide sind Pflicht für KI-Sichtbarkeit.`
@@ -152,7 +152,7 @@ export function checkReadability(content: ScrapedContent): ScoreCriterion {
     maxScore: 10,
     passed,
     hint: passed
-      ? 'Kurze, klare Sätze – gut für KI-Verständnis'
+      ? 'Kurze, klare Sätze, gut für KI-Verständnis'
       : `Ø ${Math.round(avgWordsPerSentence)} Wörter/Satz. Ideal: unter 20 Wörter/Satz.`,
   }
 }
@@ -165,7 +165,7 @@ export function checkAuthorVisible(content: ScrapedContent): ScoreCriterion {
     maxScore: 5,
     passed: content.hasAuthor,
     hint: content.hasAuthor
-      ? 'Autor erkannt – stärkt E-E-A-T Signal'
+      ? 'Autor erkannt, stärkt E-E-A-T Signal'
       : 'Kein Autor gefunden. Autorenangabe hinzufügen (Name + Rolle).',
   }
 }
@@ -178,7 +178,7 @@ export function checkDateVisible(content: ScrapedContent): ScoreCriterion {
     maxScore: 5,
     passed: content.hasDate,
     hint: content.hasDate
-      ? 'Datum erkannt – KI weiß dass Content aktuell ist'
+      ? 'Datum erkannt. KI weiß dass Content aktuell ist'
       : 'Kein Datum gefunden. Veröffentlichungs- oder Update-Datum hinzufügen.',
   }
 }
@@ -191,7 +191,7 @@ export function checkExternalLinks(content: ScrapedContent): ScoreCriterion {
     maxScore: 5,
     passed: content.hasExternalLinks,
     hint: content.hasExternalLinks
-      ? 'Externe Quellen verlinkt – signalisiert Vertrauenswürdigkeit'
+      ? 'Externe Quellen verlinkt, signalisiert Vertrauenswürdigkeit'
       : 'Keine externen Links. Quellen und weiterführende Ressourcen verlinken.',
   }
 }
