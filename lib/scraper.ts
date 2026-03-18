@@ -1,15 +1,41 @@
 import { ScrapedContent } from '@/types/aeo'
 import { detectLanguage } from '@/lib/language'
 
-export async function scrapeUrl(url: string): Promise<ScrapedContent> {
-  const jinaUrl = `https://r.jina.ai/${url}`
+const SCRAPE_TIMEOUT_MS = 20000
 
-  const response = await fetch(jinaUrl, {
-    headers: {
-      'Authorization': `Bearer ${process.env.JINA_API_KEY}`,
-      'Accept': 'text/plain',
-    },
+async function fetchViaJina(targetUrl: string): Promise<Response> {
+  const jinaUrl = `https://r.jina.ai/${targetUrl}`
+  const headers: Record<string, string> = { 'Accept': 'text/plain' }
+  if (process.env.JINA_API_KEY) {
+    headers['Authorization'] = `Bearer ${process.env.JINA_API_KEY}`
+  }
+  return fetch(jinaUrl, {
+    headers,
+    signal: AbortSignal.timeout(SCRAPE_TIMEOUT_MS),
   })
+}
+
+export async function scrapeUrl(url: string): Promise<ScrapedContent> {
+  let response = await fetchViaJina(url)
+
+  // HTTPS→HTTP Fallback: Wenn Jina 422 gibt (SSL-Fehler), mit http:// versuchen
+  if (!response.ok && response.status === 422 && url.startsWith('https://')) {
+    response = await fetchViaJina(url.replace('https://', 'http://'))
+  }
+
+  // Auth-Fallback: Wenn 401 (ungültiger Key), ohne Auth-Header versuchen
+  if (!response.ok && response.status === 401 && process.env.JINA_API_KEY) {
+    response = await fetch(`https://r.jina.ai/${url}`, {
+      headers: { 'Accept': 'text/plain' },
+      signal: AbortSignal.timeout(SCRAPE_TIMEOUT_MS),
+    })
+    if (!response.ok && response.status === 422 && url.startsWith('https://')) {
+      response = await fetch(`https://r.jina.ai/${url.replace('https://', 'http://')}`, {
+        headers: { 'Accept': 'text/plain' },
+        signal: AbortSignal.timeout(SCRAPE_TIMEOUT_MS),
+      })
+    }
+  }
 
   if (!response.ok) {
     throw new Error(`Jina.ai Fehler: ${response.status} ${response.statusText}`)
