@@ -5,37 +5,29 @@ import { ChevronDown, ChevronUp, Shield, ServerOff, MapPin } from 'lucide-react'
 
 const faqItems = [
   {
-    question: 'Was macht den AEO Transformer einzigartig?',
-    answer: 'In 20 Sekunden analysiert unsere KI deine Restaurant-Website nach den gleichen Kriterien, nach denen ChatGPT, Perplexity & Co. Antworten auswählen. Du bekommst sofort einsatzbereiten, optimierten Content: kein Account, keine Agentur, kein Warten. Einfach URL eingeben, fertig.',
+    question: 'Was ist AEO und warum ist es wichtig für mein Restaurant?',
+    answer: 'AEO (Answer Engine Optimization) sorgt dafür, dass ChatGPT und Google dein Restaurant als Quelle zitieren. Ohne AEO empfiehlt die KI die Konkurrenz — nicht dich.',
     alwaysOpen: true,
   },
   {
-    question: 'Warum gibt es den AEO Scanner und warum jetzt?',
-    answer: 'Weil die meisten Restaurant-Websites von KI-Suchmaschinen nicht verstanden werden, und die Inhaber es nicht wissen.\n\nChatGPT, Perplexity & Co. beantworten Fragen direkt. Wer nicht zitiert wird, existiert nicht. Die Zahlen:\n\n• 58% der Konsumenten nutzen KI-Tools statt Google für Produkt- und Servicesuche (Capgemini 2025)\n• +527% Anstieg KI-generierter Website-Referrals in nur 5 Monaten (Previsible Jan-Mai 2025)\n• 25% aller Suchanfragen wandern bis 2028 zu KI-Engines (Gartner)\n• 800 Mio. wöchentliche ChatGPT-Nutzer, Stand Ende 2025 (OpenAI)\n• AI Search Traffic konvertiert mit 14,2%, fünfmal besser als Google mit 2,8%\n\nDer AEO Scanner macht in 20 Sekunden sichtbar ob deine Restaurant-Website KI-lesbar ist und liefert sofort optimierten Content zum Einbauen.',
+    question: 'Wie funktioniert der AEO Scanner für Restaurants?',
+    answer: 'Du gibst deine Restaurant-URL ein. Der Scanner prüft in 30 Sekunden 8 Kriterien: Schema Markup, FAQ-Struktur, Antwortblöcke, Metadaten und mehr. Du bekommst einen Score von 0–100.',
   },
   {
-    question: 'Was ist AEO und warum brauche ich das?',
-    answer: 'AEO (Answer Engine Optimization) optimiert deine Restaurant-Website für KI-Suchmaschinen. Während Google Links rankt, wählen ChatGPT und Perplexity direkte Antworten aus. Mit AEO sicherst du dir Sichtbarkeit in KI-Antworten, ohne traditionelles Ranking.',
+    question: 'Was bedeutet KI-Sichtbarkeit für mein Restaurant?',
+    answer: 'KI-Sichtbarkeit bedeutet: Wenn jemand ChatGPT fragt „Wo esse ich gut in Berlin?", wird dein Restaurant genannt — nicht nur auf Google gefunden.',
   },
   {
-    question: 'Wie funktioniert der AEO Transformer?',
-    answer: 'Du gibst deine URL ein, die KI analysiert deinen Content nach den gleichen Kriterien wie ChatGPT und Perplexity. In 20 Sekunden erhältst du einen Score und einsatzbereiten, optimierten Content mit JSON-LD Schema und Meta-Tags.',
+    question: 'Kostet der AEO Scanner etwas?',
+    answer: 'Nein. Der Scan ist komplett kostenlos, ohne Kreditkarte. Du siehst deinen Score und die wichtigsten Probleme sofort.',
   },
   {
-    question: 'Was zeigt der AEO-Score?',
-    answer: 'Der Score (0-100) misst, wie gut deine Restaurant-Website für KI-Zitierung optimiert ist. Er berücksichtigt Content-Struktur, Klarheit der Antworten und technisches Markup, direkt vergleichbar mit dem Standard von ChatGPT & Co.',
+    question: 'Was ist der Unterschied zwischen SEO und AEO für Restaurants?',
+    answer: 'SEO optimiert für Google-Suchergebnisse. AEO optimiert für KI-Antworten — ChatGPT, Perplexity, Google AI Overviews. Beides braucht dein Restaurant heute.',
   },
   {
-    question: 'Brauche ich einen Account oder Installation?',
-    answer: 'Nein. Der AEO Transformer ist völlig kostenlos, ohne Account und ohne Installation. URL eingeben, warten, Ergebnis kopieren. DSGVO-konform und ohne Datenspeicherung.',
-  },
-  {
-    question: 'Wer sollte AEO Optimization machen?',
-    answer: 'Alle Gastronomiebetriebe profitieren: Restaurants, Cafés, Hotels, Catering-Unternehmen und Franchise-Ketten. Besonders wichtig für Betriebe die Reservierungen, Speisekarten und Angebote online haben, denn diese Inhalte werden von KI-Suchmaschinen zitiert.',
-  },
-  {
-    question: 'Wie aktuell ist die Analyse?',
-    answer: 'Die Analyse läuft in Echtzeit.',
+    question: 'Wie schnell sehe ich Ergebnisse nach einer AEO-Optimierung?',
+    answer: 'Google AI Overviews aktualisieren sich alle 2–4 Wochen. Nach der Optimierung prüfe mit dem Scanner ob dein Score gestiegen ist.',
   },
 ]
 
