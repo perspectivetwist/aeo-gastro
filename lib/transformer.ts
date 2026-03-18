@@ -1,8 +1,13 @@
 import Anthropic from '@anthropic-ai/sdk'
 import { ScrapedContent, TransformerOutput } from '@/types/aeo'
 
+function cleanApiKey(key: string | undefined): string | undefined {
+  if (!key) return undefined
+  return key.replace(/^["']+|["']+$/g, '').replace(/\\n/g, '').trim()
+}
+
 const client = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY?.trim(),
+  apiKey: cleanApiKey(process.env.ANTHROPIC_API_KEY),
 })
 
 export async function transformContent(content: ScrapedContent): Promise<TransformerOutput> {
