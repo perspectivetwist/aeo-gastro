@@ -2,7 +2,7 @@ import Anthropic from '@anthropic-ai/sdk'
 import { ScrapedContent, TransformerOutput } from '@/types/aeo'
 
 const client = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
+  apiKey: process.env.ANTHROPIC_API_KEY?.trim(),
 })
 
 export async function transformContent(content: ScrapedContent): Promise<TransformerOutput> {
