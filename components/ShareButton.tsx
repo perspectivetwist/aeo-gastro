@@ -9,7 +9,8 @@ interface Props {
 export default function ShareButton({ score, resultUrl }: Props) {
   const [copied, setCopied] = useState(false)
 
-  const shareText = `Ich hab gerade gecheckt wie sichtbar mein Betrieb für ChatGPT & Co ist: ${score}/100. Empfiehlt ChatGPT & Co dich überhaupt weiter? Kostenlos testen: ${resultUrl}`
+  const baseUrl = 'https://aeo-gastro.vercel.app'
+  const shareText = `Ich hab gerade gecheckt wie sichtbar mein Betrieb für ChatGPT & Co ist: ${score}/100. Empfiehlt ChatGPT & Co dich überhaupt weiter? Kostenlos testen: ${baseUrl}`
 
   function handleWhatsApp() {
     window.open(`https://wa.me/?text=${encodeURIComponent(shareText)}`, '_blank')
