@@ -4,6 +4,7 @@ import { calculateTotalScore } from '@/lib/scorer'
 import { transformContent } from '@/lib/transformer'
 import { checkRateLimit, isCrawlerAuthorized } from '@/lib/rate-limit'
 import { ScanResult, ApiError } from '@/types/aeo'
+import { generateKiSummary } from '@/lib/ki-summary'
 import { logScan } from '@/lib/notion'
 import { pingIndexNow } from '@/lib/indexnow'
 
@@ -105,10 +106,25 @@ export async function POST(request: NextRequest) {
       transformContent(scraped),                      // Async (Claude API)
     ])
 
+    // KI-Zusammenfassung generieren (non-fatal)
+    let kiSummary = undefined
+    try {
+      const befunde = score.criteria
+        .filter(c => !c.passed)
+        .map(c => `${c.name}: ${c.hint}`)
+        .join(' | ')
+      if (befunde) {
+        kiSummary = await generateKiSummary(normalizedUrl, befunde) ?? undefined
+      }
+    } catch (err) {
+      console.error('KI-Summary error (non-fatal):', err)
+    }
+
     const result: ScanResult = {
       url: normalizedUrl,
       score,
       transformer,
+      kiSummary,
       language: scraped.language,
       scannedAt: new Date().toISOString(),
     }

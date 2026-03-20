@@ -14,6 +14,7 @@ import EmailGate from '@/components/EmailGate'
 import BlurWrapper from '@/components/BlurWrapper'
 import CrossSell from '@/components/CrossSell'
 import ShareButton from '@/components/ShareButton'
+import KIZusammenfassung from '@/components/KIZusammenfassung'
 import { trackScanComplete, trackEmailGate } from '@/lib/gtag'
 
 const SECTION_CONFIG = [
@@ -219,6 +220,8 @@ function ResultsContent() {
         />
 
 <ScoreCriteria criteria={result.score.criteria} />
+
+        <KIZusammenfassung kiSummary={result.kiSummary ?? null} isUnlocked={isUnlocked} />
 
         {/* Visible cards (items 01+02) */}
         {visibleSections.map((section, i) => (

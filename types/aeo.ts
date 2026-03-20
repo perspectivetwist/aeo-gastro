@@ -48,11 +48,16 @@ export interface FaqItem {
   answer: string
 }
 
+export interface KiSummary {
+  zusammenfassung: string
+}
+
 // Vollständiges Scan-Ergebnis (API Response)
 export interface ScanResult {
   url: string
   score: AeoScore
   transformer: TransformerOutput
+  kiSummary?: KiSummary
   language: 'de' | 'en' | 'unknown'
   scannedAt: string       // ISO Timestamp
 }
