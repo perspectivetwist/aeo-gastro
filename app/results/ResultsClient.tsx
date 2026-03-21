@@ -287,7 +287,7 @@ function ResultsContent() {
       {!isUnlocked && (
         <EmailGate
           primaryColor="#6366f1"
-          scannerSource="AEO"
+          scannerSource="gastro-aeo"
           url={decodeURIComponent(url)}
           onUnlock={handleUnlock}
         />
