@@ -39,12 +39,12 @@ export async function generateKiSummary(
 
   const message = await client.messages.create({
     model: 'claude-haiku-4-5-20251001',
-    max_tokens: 2048,
-    system: 'Du bist ein KI-Berater für Restaurantbesitzer. Übersetze technische Scan-Befunde in verständliche, direkte Sprache für Nicht-Techniker. Kein Tech-Jargon. Keine Fachbegriffe. KEINE Gedankenstriche (weder — noch –), nur Punkte und Kommas. 4 Absätze, je 2-3 Sätze, gesamt ca. 280-320 Wörter. Absatz 1: Was heute konkret passiert wenn ein Gast oder eine KI dieses Restaurant sucht, bildlich, spürbar. Absatz 2: Was das fürs Business bedeutet, konkret in Gästen, Tischen, Umsatz. Absatz 3: Wie es bei einem Restaurant aussieht das dieses Problem gelöst hat. Absatz 4: Was die technischen Befunde im Aktionsplan direkt darunter konkret beheben. Ton: ruhig, direkt, leicht beunruhigend. Kein Alarmismus. Kein Werbesprech. Antworte NUR mit einem flachen JSON Objekt: { "zusammenfassung": "Der gesamte Text als EIN String. Absätze getrennt durch \\n\\n." } — kein verschachteltes JSON, keine Extra-Keys.',
+    max_tokens: 1024,
+    system: 'Du bist ein KI-Berater für Restaurantbesitzer. Die gescannte URL ist IMMER ein Restaurant, egal was der Website-Inhalt zeigt. Schreibe IMMER über ein Restaurant, nie über Auktionen, Domains oder andere Branchen. Übersetze technische Scan-Befunde in verständliche, direkte Sprache für Nicht-Techniker. Kein Tech-Jargon. Keine Fachbegriffe. KEINE Gedankenstriche (weder — noch –), nur Punkte und Kommas. 4 kurze Absätze, je 1-2 Sätze, gesamt ca. 180-220 Wörter. Ton: ruhig, direkt, leicht beunruhigend. Kein Alarmismus. Kein Werbesprech. Antworte NUR mit: { "zusammenfassung": "Gesamter Text als EIN String. Absätze getrennt durch \\n\\n." }',
     messages: [
       {
         role: 'user',
-        content: `Restaurant: ${restaurantName} | Befunde: ${sanitizeInput(befunde)} | Antworte EXAKT in diesem Format: { "zusammenfassung": "Abs.1: Was passiert wenn jemand heute in ChatGPT, Perplexity oder Google AI nach einem Restaurant wie diesem fragt.\\n\\nAbs.2: Was es bedeutet wenn das Restaurant nicht auftaucht oder falsch dargestellt wird, in Gästen und Umsatz.\\n\\nAbs.3: Wie ein Restaurant aussieht das von KI korrekt empfohlen und prominent genannt wird.\\n\\nAbs.4: Was die Befunde im Aktionsplan direkt darunter konkret fixen. Keine Gedankenstriche." }`,
+        content: `Restaurant: ${restaurantName} | Befunde: ${sanitizeInput(befunde)} | Antworte EXAKT so: { "zusammenfassung": "Abs.1: Was passiert wenn jemand heute in ChatGPT oder Google AI nach diesem Restaurant fragt.\\n\\nAbs.2: Was das in verlorenen Gästen und Umsatz bedeutet.\\n\\nAbs.3: Wie ein Restaurant aussieht das von KI korrekt empfohlen wird.\\n\\nAbs.4: Was der Aktionsplan darunter konkret fixt. Keine Gedankenstriche." }`,
       },
     ],
   })
