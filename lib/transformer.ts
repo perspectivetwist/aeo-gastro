@@ -1,21 +1,34 @@
-import Anthropic from '@anthropic-ai/sdk'
-import { ScrapedContent, TransformerOutput } from '@/types/aeo'
+import { ScrapedContent, TransformerOutput, FaqItem } from '@/types/aeo'
+import {
+  detectIndustry,
+  optimizeTitle,
+  optimizeDescription,
+  generateJsonLd,
+  extractAnswerBlock,
+  extractFaqItems,
+} from './rule-transformer'
 
 function cleanApiKey(key: string | undefined): string | undefined {
   if (!key) return undefined
   return key.replace(/^["']+|["']+$/g, '').replace(/\\n/g, '').trim()
 }
 
-const client = new Anthropic({
-  apiKey: cleanApiKey(process.env.ANTHROPIC_API_KEY),
-})
+// Claude-Call für answerBlock + faqItems (optional, non-fatal)
+async function claudeGenerateContent(
+  content: ScrapedContent
+): Promise<{ answerBlock: string; faqItems: FaqItem[] } | null> {
+  const apiKey = cleanApiKey(process.env.ANTHROPIC_API_KEY)
+  if (!apiKey) return null
 
-export async function transformContent(content: ScrapedContent): Promise<TransformerOutput> {
-  const langInstruction = content.language === 'de'
-    ? 'Antworte auf Deutsch.'
-    : 'Respond in English.'
+  try {
+    const { default: Anthropic } = await import('@anthropic-ai/sdk')
+    const client = new Anthropic({ apiKey })
 
-  const prompt = `Du bist ein AEO-Experte (Answer Engine Optimization). Analysiere diese Website und erstelle optimierten Content der von KI-Systemen wie ChatGPT, Perplexity und Gemini zitiert werden kann.
+    const langInstruction = content.language === 'de'
+      ? 'Antworte auf Deutsch.'
+      : 'Respond in English.'
+
+    const prompt = `Du bist ein AEO-Experte. Erstelle für diese Website optimierten Content der von KI-Systemen zitiert werden kann.
 
 URL: ${content.url}
 Titel: ${content.title}
@@ -33,28 +46,50 @@ Erstelle exakt dieses JSON-Objekt (kein anderer Text, nur JSON):
     {"question": "Frage 3?", "answer": "Antwort."},
     {"question": "Frage 4?", "answer": "Antwort."},
     {"question": "Frage 5?", "answer": "Antwort."}
-  ],
-  "jsonLd": "{\\"@context\\": \\"https://schema.org\\", \\"@type\\": \\"FAQPage\\", \\"mainEntity\\": [{\\"@type\\": \\"Question\\", \\"name\\": \\"Frage 1?\\", \\"acceptedAnswer\\": {\\"@type\\": \\"Answer\\", \\"text\\": \\"Antwort 1\\"}}]}",
-  "metaTitle": "Optimierter Title. Max 60 Zeichen.",
-  "metaDescription": "Optimierte Meta-Description die den Kernnutzen erklärt. Max 155 Zeichen, inkl. Keyword.",
-  "industry": "Gib die Branche auf Deutsch zurück, max. 2 Wörter, kein Schrägstrich, kein Englisch. Beispiele: Zahnarzt, Handwerker, Online-Shop, Steuerberater. Fallback: 'Websites allgemein'"
+  ]
 }`
 
-  const message = await client.messages.create({
-    model: 'claude-haiku-4-5-20251001',
-    max_tokens: 2000,
-    messages: [{ role: 'user', content: prompt }],
-  })
+    const message = await client.messages.create({
+      model: 'claude-haiku-4-5-20251001',
+      max_tokens: 1500,
+      messages: [{ role: 'user', content: prompt }],
+    })
 
-  const responseText = message.content[0].type === 'text' ? message.content[0].text : ''
+    const responseText = message.content[0].type === 'text' ? message.content[0].text : ''
+    const cleanJson = responseText.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim()
+    const parsed = JSON.parse(cleanJson) as { answerBlock: string; faqItems: FaqItem[] }
 
-  // JSON parsen (Haiku gibt manchmal Markdown-Fences zurück)
-  const cleanJson = responseText.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim()
-
-  try {
-    const parsed = JSON.parse(cleanJson) as TransformerOutput
-    return parsed
+    if (parsed.answerBlock && Array.isArray(parsed.faqItems)) {
+      return parsed
+    }
+    return null
   } catch {
-    throw new Error(`Claude Haiku JSON-Parse Fehler. Raw: ${responseText.slice(0, 200)}`)
+    // Non-fatal: Claude nicht verfügbar → Fallback wird genutzt
+    return null
+  }
+}
+
+export async function transformContent(content: ScrapedContent): Promise<TransformerOutput> {
+  // Regelbasierte Felder (immer)
+  const industry = detectIndustry(content)
+  const metaTitle = optimizeTitle(content.title)
+  const metaDescription = optimizeDescription(content.description)
+
+  // Claude für answerBlock + faqItems (mit Fallback)
+  const claudeResult = await claudeGenerateContent(content)
+
+  const answerBlock = claudeResult?.answerBlock ?? extractAnswerBlock(content)
+  const faqItems = claudeResult?.faqItems ?? extractFaqItems(content)
+
+  // JSON-LD aus finalen faqItems generieren (immer regelbasiert)
+  const jsonLd = generateJsonLd(faqItems)
+
+  return {
+    answerBlock,
+    faqItems,
+    jsonLd,
+    metaTitle,
+    metaDescription,
+    industry,
   }
 }
