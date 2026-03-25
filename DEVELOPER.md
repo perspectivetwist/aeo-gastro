@@ -38,3 +38,19 @@ Vercel URL: https://aeo-gastro.vercel.app
 | lib/scraper.ts | Jina.ai Wrapper |
 | lib/scorer.ts | AEO Score Berechnung |
 | lib/transformer.ts | Claude Haiku Content-Generierung |
+
+
+## Rate Limiting (Upstash Redis via Vercel KV)
+
+**Datei:** `lib/rate-limit.ts`
+
+- **Backend:** Vercel KV (Upstash Redis), shared Store über alle Scanner
+- **Algorithmus:** Sliding Window, 2 Requests/Stunde pro IP
+- **IP-Whitelist:** `RATE_LIMIT_WHITELIST_IPS` ENV (komma-separiert)
+- **Crawler-Bypass:** `x-crawler-secret` Header → `CRAWLER_SECRET` ENV
+- **Fallback:** Ohne Redis-Config → kein Rate Limiting (graceful degradation)
+
+**ENV-Variablen:**
+- `KV_REST_API_URL` — Vercel KV Endpoint (automatisch via Vercel Integration)
+- `KV_REST_API_TOKEN` — Vercel KV Auth Token
+- `RATE_LIMIT_WHITELIST_IPS` — z.B. `93.222.117.15`
