@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AEO Scanner — Kostenloser KI-Sichtbarkeits-Check für Gastronomie
 
-## Getting Started
+[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?logo=vercel)](https://aeo-gastro.vercel.app)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-First, run the development server:
+## Was macht dieses Tool?
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Der AEO Scanner prüft, ob **ChatGPT, Perplexity und andere KI-Assistenten** deine Restaurant-Website lesen und in ihren Antworten zitieren können. AEO steht für **Answer Engine Optimization** — die wichtigste neue Disziplin neben klassischem SEO.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Der Scanner analysiert:
+- **Strukturierte Daten** (Schema.org, JSON-LD) — Kann KI deine Öffnungszeiten, Speisekarte und Adresse lesen?
+- **Content-Qualität** — Sind deine Inhalte so aufbereitet, dass KI-Systeme sie als Quelle nutzen?
+- **Technische Zugänglichkeit** — Blockiert deine Website KI-Crawler?
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Ergebnis: Ein AEO-Score mit konkreten Handlungsempfehlungen für dein Restaurant.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Live-Demo
 
-## Learn More
+**[Jetzt kostenlos testen: aeo-gastro.vercel.app](https://aeo-gastro.vercel.app?utm_source=github&utm_medium=readme&utm_campaign=parasite)**
 
-To learn more about Next.js, take a look at the following resources:
+Kein Account nötig. Ergebnis in 30 Sekunden.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Warum das wichtig ist
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+KI-Assistenten beantworten immer häufiger Fragen wie *„Wo kann ich in Berlin gut essen?"* — direkt, ohne Google-Klick. Restaurants, deren Websites nicht für KI-Systeme optimiert sind, werden in diesen Antworten nicht erwähnt. Der AEO Scanner macht dieses unsichtbare Problem sichtbar.
 
-## Deploy on Vercel
+## Alle Scanner im Überblick
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Dieses Tool ist Teil des **[AI Gastro Hub](https://ai-gastro-hub.vercel.app?utm_source=github&utm_medium=readme&utm_campaign=parasite)** — der kostenlosen AI-Readiness-Plattform für die Gastronomie.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+Built by [AI Shift Drift](https://ai-gastro-hub.vercel.app?utm_source=github&utm_medium=readme&utm_campaign=parasite), Berlin
