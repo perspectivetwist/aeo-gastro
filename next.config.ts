@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  basePath: '/aeo-scanner',
+  assetPrefix: '/aeo-scanner',
 };
 
 export default nextConfig;
