@@ -3,6 +3,8 @@
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState, Suspense } from 'react'
 import { ScanResult } from '@/types/aeo'
+
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || ''
 import ScoreDisplay from '@/components/ScoreDisplay'
 import ScoreCriteria from '@/components/ScoreCriteria'
 import AnswerBlock from '@/components/AnswerBlock'
@@ -133,7 +135,7 @@ function ResultsContent() {
 
     async function runScan() {
       try {
-        const res = await fetch('/api/scan', {
+        const res = await fetch(`${BASE_PATH}/api/scan`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ url: decodeURIComponent(url) }),
