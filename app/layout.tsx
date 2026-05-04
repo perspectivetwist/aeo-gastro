@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "KI-Sichtbarkeit für Gastronomie | Wird ChatGPT dein Restaurant empfehlen?",
     description:
       "Kostenloser AEO-Scan für die Gastronomie: Ist dein Restaurant für ChatGPT, Google AI und Perplexity sichtbar?",
-    url: "https://aeo-gastro.vercel.app",
+    url: "https://www.ki-gastronomie.com/aeo-scanner",
     siteName: "AEO Gastro Scanner",
     type: "website",
   },
@@ -56,7 +56,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "AI Shift Drift",
-              "url": "https://ai-gastro-hub.vercel.app",
+              "url": "https://www.ki-gastronomie.com",
               "sameAs": [
                 "https://github.com/perspectivetwist",
                 "https://www.crunchbase.com/organization/ai-shift-drift"

@@ -9,7 +9,7 @@ interface Props {
 export default function ShareButton({ score, resultUrl }: Props) {
   const [copied, setCopied] = useState(false)
 
-  const baseUrl = 'https://aeo-gastro.vercel.app'
+  const baseUrl = 'https://www.ki-gastronomie.com/aeo-scanner'
   const shareText = `Ich hab gerade gecheckt wie sichtbar mein Betrieb für ChatGPT & Co ist: ${score}/100. Empfiehlt ChatGPT & Co dich überhaupt weiter? Kostenlos testen: ${baseUrl}`
 
   function handleWhatsApp() {
