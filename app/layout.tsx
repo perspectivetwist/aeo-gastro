@@ -17,6 +17,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || 'https://www.ki-gastronomie.com'
+  ),
+  alternates: {
+    canonical: '/aeo-scanner',
+  },
   verification: { other: { 'msvalidate.01': '4238BAC83D0A84184DB5C8AEF5C3CE14' } },
   robots: { index: true, follow: true },
   title: "KI-Sichtbarkeit für Gastronomie | Wird ChatGPT dein Restaurant empfehlen?",
