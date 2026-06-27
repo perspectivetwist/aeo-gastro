@@ -129,8 +129,9 @@ export async function POST(request: NextRequest) {
       scannedAt: new Date().toISOString(),
     }
 
-    // Scan in Notion loggen
-    await logScan(normalizedUrl, score.total)
+    // Scan in Notion loggen — inkl. Dimensionen + Source
+    const dimStr = score.criteria.map(c => `${c.name}: ${c.score}`).join(', ')
+    await logScan(normalizedUrl, score.total, dimStr)
 
     // IndexNow: Result-URL an Bing pushen (fire-and-forget)
     pingIndexNow(normalizedUrl)
